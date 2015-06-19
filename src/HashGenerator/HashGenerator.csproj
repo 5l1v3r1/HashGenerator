@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>HashGenerator.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -44,14 +47,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="core\hashing\hgSHA512.cs" />
+    <Compile Include="core\hashing\hgHashAlgorithm.cs" />
+    <Compile Include="core\hashing\hgMD5.cs" />
+    <Compile Include="core\hashing\hgSHA1.cs" />
+    <Compile Include="core\hashing\hgSHA256.cs" />
+    <Compile Include="core\ui\forms\hgAboutForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="core\ui\forms\hgAboutForm.Designer.cs">
+      <DependentUpon>hgAboutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="core\ui\forms\hgMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="core\ui\forms\hgMainForm.Designer.cs">
+      <DependentUpon>hgMainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="core\ui\forms\hgAboutForm.resx">
+      <DependentUpon>hgAboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="core\ui\forms\hgMainForm.resx">
+      <DependentUpon>hgMainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -74,6 +94,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
